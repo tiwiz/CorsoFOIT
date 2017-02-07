@@ -8,6 +8,9 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.foit.corsofoit.model.Event;
+import it.foit.corsofoit.adapter.EventAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

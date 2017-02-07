@@ -1,4 +1,4 @@
-package it.foit.corsofoit;
+package it.foit.corsofoit.model;
 
 import android.support.annotation.DrawableRes;
 
