@@ -16,7 +16,7 @@ public class EventRepository {
 
     private List<Event> loadEvents() {
         List<Event> events = new ArrayList<>();
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < NUMBER_OF_DEFAULT_EVENTS; i++){
             events.add(new Event(R.mipmap.ic_event, "Evento " + i, "Adesso"));
         }
         return events;
