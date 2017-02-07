@@ -8,13 +8,13 @@ import android.widget.TextView;
 import it.foit.corsofoit.R;
 import it.foit.corsofoit.model.Event;
 
-public class EventViewHolder extends RecyclerView.ViewHolder {
+class EventViewHolder extends RecyclerView.ViewHolder {
 
     private ImageView eventIcon;
     private TextView eventTitle;
     private TextView eventDate;
 
-    public EventViewHolder(View itemView) {
+    EventViewHolder(View itemView) {
         super(itemView);
 
         eventIcon = (ImageView) itemView.findViewById(R.id.elementIcon);
@@ -22,7 +22,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         eventDate = (TextView) itemView.findViewById(R.id.elementTime);
     }
 
-    public void bindTo(Event event){
+    void bindTo(Event event){
         eventIcon.setImageResource(event.getImage());
         eventTitle.setText(event.getTitle());
         eventDate.setText(event.getDateTime());

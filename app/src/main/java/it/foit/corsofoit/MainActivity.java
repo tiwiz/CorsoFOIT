@@ -10,8 +10,10 @@ import java.util.List;
 
 import it.foit.corsofoit.model.Event;
 import it.foit.corsofoit.adapter.EventAdapter;
+import it.foit.corsofoit.repository.EventRepository;
 
 public class MainActivity extends AppCompatActivity {
+    private final EventRepository repository = new EventRepository();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +23,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView eventsList = (RecyclerView) findViewById(R.id.eventsList);
 
         eventsList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-
-        List<Event> events = new ArrayList<>();
-        for (int i = 0; i < 10; i++){
-            events.add(new Event(R.mipmap.ic_event, "Evento " + i, "Adesso"));
-        }
-
-        EventAdapter adapter = new EventAdapter(events);
+        EventAdapter adapter = new EventAdapter(repository.getEvents());
         eventsList.setAdapter(adapter);
     }
 
