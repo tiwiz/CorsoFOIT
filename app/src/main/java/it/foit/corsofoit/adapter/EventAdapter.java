@@ -14,9 +14,11 @@ import it.foit.corsofoit.model.Event;
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
     private List<Event> eventList;
+    private final OnElementTappedListener listener;
 
-    public EventAdapter(List<Event> eventList) {
+    public EventAdapter(List<Event> eventList, final OnElementTappedListener listener) {
         this.eventList = eventList;
+        this.listener = listener;
     }
 
     @Override
@@ -30,7 +32,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
          * i due, per lei sono diversi e se mettiamo a TRUE, si arrabbierà
          */
         View view = getLayoutInflater(parent).inflate(R.layout.single_element, parent, false);
-        return new EventViewHolder(view);
+        return new EventViewHolder(view, listener);
     }
 
     /**

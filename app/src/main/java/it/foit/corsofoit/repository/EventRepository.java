@@ -7,6 +7,7 @@ import it.foit.corsofoit.R;
 import it.foit.corsofoit.model.Event;
 
 public class EventRepository {
+
     private final int NUMBER_OF_DEFAULT_EVENTS = 10;
     private final List<Event> events;
 
