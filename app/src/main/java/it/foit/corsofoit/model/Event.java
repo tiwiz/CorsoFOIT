@@ -2,11 +2,16 @@ package it.foit.corsofoit.model;
 
 import android.support.annotation.DrawableRes;
 
+import com.google.gson.annotations.SerializedName;
+
 public final class Event {
 
     @DrawableRes
+    @SerializedName("immagine")
     private final int image;
+    @SerializedName("titolo")
     private final String title;
+    @SerializedName("data")
     private final String dateTime;
 
     public Event(int image, String title, String dateTime) {
