@@ -1,10 +1,53 @@
 {
   "events" : [
     {
-      "id" : 0,
-      "immagine" : "",
-      "titolo" : "",
-      "data" : ""
+      "id" : 1,
+      "immagine" : "http://orgiu.net/CorsoFOIT/api/images/001.jpg",
+      "titolo" : "Sagra delle sagre",
+      "data" : "1497558600",
+      "costo" : 0.0
+    },
+    {
+      "id" : 2,
+      "immagine" : "http://orgiu.net/CorsoFOIT/api/images/002.jpg",
+      "titolo" : "Fritto misto",
+      "data" : "1497639600",
+      "costo" : 5.0
+    },
+    {
+      "id" : 3,
+      "immagine" : "http://orgiu.net/CorsoFOIT/api/images/003.jpg",
+      "titolo" : "Tagliata",
+      "data" : "1497726000",
+      "costo" : 10.0
+    },
+    {
+      "id" : 4,
+      "immagine" : "http://orgiu.net/CorsoFOIT/api/images/004.jpg",
+      "titolo" : "Gelato in compagnia",
+      "data" : "1497630600",
+      "costo" : 3.5
+    },
+    {
+      "id" : 5,
+      "immagine" : "http://orgiu.net/CorsoFOIT/api/images/005.jpg",
+      "titolo" : "Rappresentazione con un sacco di gente",
+      "data" : "1497650400",
+      "costo" : 0.0
+    },
+    {
+      "id" : 6,
+      "immagine" : "http://orgiu.net/CorsoFOIT/api/images/006.jpg",
+      "titolo" : "Aiutiamo la Pro Loco",
+      "data" : "1497690000",
+      "costo" : 0.9
+    },
+    {
+      "id" : 7,
+      "immagine" : "http://orgiu.net/CorsoFOIT/api/images/007.jpg",
+      "titolo" : "Messa",
+      "data" : "1497697200",
+      "costo" : 0.0
     }
   ]
 }
