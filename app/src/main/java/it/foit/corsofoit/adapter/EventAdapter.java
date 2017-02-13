@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.foit.corsofoit.R;
@@ -13,11 +14,10 @@ import it.foit.corsofoit.model.Event;
 
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
-    private List<Event> eventList;
+    private List<Event> eventList = new ArrayList<>();
     private final OnElementTappedListener listener;
 
-    public EventAdapter(List<Event> eventList, final OnElementTappedListener listener) {
-        this.eventList = eventList;
+    public EventAdapter(final OnElementTappedListener listener) {
         this.listener = listener;
     }
 
@@ -57,5 +57,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     @Override
     public int getItemCount() {
         return eventList.size();
+    }
+
+    /**
+     * Questo metodo ci permette di aggiungere gli eventi man mano che vengono trovati
+     */
+    public void setEventList(List<Event> eventList) {
+        this.eventList = eventList;
+        notifyDataSetChanged();
     }
 }

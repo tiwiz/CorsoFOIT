@@ -5,8 +5,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
+import it.foit.corsofoit.DateConverter;
 import it.foit.corsofoit.R;
 import it.foit.corsofoit.model.Event;
+
+import static it.foit.corsofoit.DateConverter.*;
 
 class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -32,9 +41,13 @@ class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickLis
 
     void bindTo(Event event){
         this.event = event;
-//        eventIcon.setImageResource(event.getImage());
+
+        Picasso.with(itemView.getContext())
+                .load(event.getImage())
+                .into(eventIcon);
+
         eventTitle.setText(event.getTitle());
-        eventDate.setText(event.getDateTime());
+        eventDate.setText(convertToHumanReadableTime(event.getDateTime()));
     }
 
     @Override

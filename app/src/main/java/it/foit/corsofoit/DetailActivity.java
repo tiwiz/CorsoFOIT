@@ -11,6 +11,8 @@ import com.google.gson.Gson;
 
 import it.foit.corsofoit.model.Event;
 
+import static it.foit.corsofoit.DateConverter.convertToHumanReadableTime;
+
 public class DetailActivity extends AppCompatActivity {
 
     private ImageView eventIcon;
@@ -44,12 +46,12 @@ public class DetailActivity extends AppCompatActivity {
 
     private void bindViewWith(Event event) {
 //        eventIcon.setImageResource(event.getImage());
-        eventDate.setText(event.getDateTime());
+        eventDate.setText(convertToHumanReadableTime(event.getDateTime()));
     }
 
     private void bindToolbarWith(Event event) {
         getSupportActionBar().setTitle(event.getTitle());
-        getSupportActionBar().setSubtitle(event.getDateTime());
+        getSupportActionBar().setSubtitle(convertToHumanReadableTime(event.getDateTime()));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

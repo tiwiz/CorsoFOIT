@@ -1,29 +1,42 @@
 package it.foit.corsofoit.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import it.foit.corsofoit.R;
 import it.foit.corsofoit.model.Event;
+import it.foit.corsofoit.model.EventResponse;
+import it.foit.corsofoit.networking.ApiService;
+import it.foit.corsofoit.networking.EventsApi;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class EventRepository {
 
-    private final int NUMBER_OF_DEFAULT_EVENTS = 10;
-    private final List<Event> events;
+    private final EventsApi eventsApi = new ApiService().getEventsApi();
 
-    public EventRepository() {
-        events = loadEvents();
+    private final OnElementsLoadedListener listener;
+
+    public interface OnElementsLoadedListener {
+        void onElementsLoaded(List<Event> events);
+        void onElementWentIncrediblyBad();
     }
 
-    private List<Event> loadEvents() {
-        List<Event> events = new ArrayList<>();
-        for (int i = 0; i < NUMBER_OF_DEFAULT_EVENTS; i++){
-            events.add(new Event(i, "", "Evento " + i, "Adesso", 0f));
-        }
-        return events;
+    public EventRepository(OnElementsLoadedListener listener) {
+        this.listener = listener;
     }
 
-    public List<Event> getEvents() {
-        return events;
+    public void loadEvents() {
+
+        eventsApi.getEvents().enqueue(new Callback<EventResponse>() {
+            @Override
+            public void onResponse(Call<EventResponse> call, retrofit2.Response<EventResponse> response) {
+                listener.onElementsLoaded(response.body().getEvents());
+            }
+
+            @Override
+            public void onFailure(Call<EventResponse> call, Throwable t) {
+                listener.onElementWentIncrediblyBad();
+            }
+        });
     }
+
 }

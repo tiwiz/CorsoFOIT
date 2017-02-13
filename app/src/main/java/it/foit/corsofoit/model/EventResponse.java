@@ -3,11 +3,11 @@ package it.foit.corsofoit.model;
 
 import java.util.List;
 
-public class Response {
+public class EventResponse {
 
     private final List<Event> events;
 
-    public Response(List<Event> events) {
+    public EventResponse(List<Event> events) {
         this.events = events;
     }
 
