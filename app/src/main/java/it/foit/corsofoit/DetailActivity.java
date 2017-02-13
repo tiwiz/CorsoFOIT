@@ -43,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void bindViewWith(Event event) {
-        eventIcon.setImageResource(event.getImage());
+//        eventIcon.setImageResource(event.getImage());
         eventDate.setText(event.getDateTime());
     }
 

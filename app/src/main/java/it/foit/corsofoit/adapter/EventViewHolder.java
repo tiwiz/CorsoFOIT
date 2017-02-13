@@ -32,7 +32,7 @@ class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickLis
 
     void bindTo(Event event){
         this.event = event;
-        eventIcon.setImageResource(event.getImage());
+//        eventIcon.setImageResource(event.getImage());
         eventTitle.setText(event.getTitle());
         eventDate.setText(event.getDateTime());
     }
