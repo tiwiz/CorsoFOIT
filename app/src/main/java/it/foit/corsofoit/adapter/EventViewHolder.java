@@ -44,6 +44,8 @@ class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickLis
 
         Picasso.with(itemView.getContext())
                 .load(event.getImage())
+                .placeholder(R.drawable.ic_download_wait)
+                .error(R.drawable.ic_download_error)
                 .into(eventIcon);
 
         eventTitle.setText(event.getTitle());
