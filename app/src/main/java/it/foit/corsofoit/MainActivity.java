@@ -15,11 +15,13 @@ import it.foit.corsofoit.model.Event;
 import it.foit.corsofoit.adapter.EventAdapter;
 import it.foit.corsofoit.networking.ApiService;
 import it.foit.corsofoit.repository.EventRepository;
+import it.foit.corsofoit.utils.RemoteConfigurationManager;
 
 public class MainActivity extends BaseActivity implements OnElementTappedListener, EventRepository.OnElementsLoadedListener {
 
     private EventRepository repository;
     private EventAdapter adapter;
+    private RemoteConfigurationManager remoteConfigurationManager = new RemoteConfigurationManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class MainActivity extends BaseActivity implements OnElementTappedListene
         setContentView(R.layout.activity_main);
 
         RecyclerView eventsList = (RecyclerView) findViewById(R.id.eventsList);
-        eventsList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        eventsList.setLayoutManager(remoteConfigurationManager.getLayoutManager());
         adapter = new EventAdapter(this);
         eventsList.setAdapter(adapter);
         repository = new EventRepository(new ApiService().getEventsApi(), this);
