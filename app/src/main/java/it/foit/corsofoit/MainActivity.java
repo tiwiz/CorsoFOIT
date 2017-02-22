@@ -13,6 +13,7 @@ import java.util.List;
 import it.foit.corsofoit.adapter.OnElementTappedListener;
 import it.foit.corsofoit.model.Event;
 import it.foit.corsofoit.adapter.EventAdapter;
+import it.foit.corsofoit.networking.ApiService;
 import it.foit.corsofoit.repository.EventRepository;
 
 public class MainActivity extends AppCompatActivity implements OnElementTappedListener, EventRepository.OnElementsLoadedListener {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements OnElementTappedLi
         eventsList.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         adapter = new EventAdapter(this);
         eventsList.setAdapter(adapter);
-        repository = new EventRepository(this);
+        repository = new EventRepository(new ApiService().getEventsApi(), this);
         repository.loadEvents();
     }
 

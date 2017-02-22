@@ -2,7 +2,7 @@ package it.foit.corsofoit.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public final class Event {
+public final class Event implements EventBase {
 
     private final int id;
     @SerializedName("immagine")
@@ -22,22 +22,27 @@ public final class Event {
         this.price = price;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public String getImage() {
         return image;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public String getDateTime() {
         return dateTime;
     }
 
+    @Override
     public float getPrice() {
         return price;
     }

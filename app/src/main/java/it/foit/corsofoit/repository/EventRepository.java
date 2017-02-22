@@ -11,7 +11,7 @@ import retrofit2.Callback;
 
 public class EventRepository {
 
-    private final EventsApi eventsApi = new ApiService().getEventsApi();
+    private final EventsApi eventsApi;
 
     private final OnElementsLoadedListener listener;
 
@@ -20,7 +20,8 @@ public class EventRepository {
         void onElementWentIncrediblyBad();
     }
 
-    public EventRepository(OnElementsLoadedListener listener) {
+    public EventRepository(EventsApi eventsApi, OnElementsLoadedListener listener) {
+        this.eventsApi = eventsApi;
         this.listener = listener;
     }
 
