@@ -16,7 +16,7 @@ import it.foit.corsofoit.adapter.EventAdapter;
 import it.foit.corsofoit.networking.ApiService;
 import it.foit.corsofoit.repository.EventRepository;
 
-public class MainActivity extends AppCompatActivity implements OnElementTappedListener, EventRepository.OnElementsLoadedListener {
+public class MainActivity extends BaseActivity implements OnElementTappedListener, EventRepository.OnElementsLoadedListener {
 
     private EventRepository repository;
     private EventAdapter adapter;

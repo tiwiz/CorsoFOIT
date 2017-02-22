@@ -13,7 +13,7 @@ import it.foit.corsofoit.model.Event;
 
 import static it.foit.corsofoit.DateConverter.convertToHumanReadableTime;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends BaseActivity {
 
     private ImageView eventIcon;
     private TextView eventDate;
